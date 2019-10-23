@@ -4,55 +4,50 @@ import java.util.HashMap;
 
 public class OcurrencesApp 
 {
-	public static void main(String[]arg)
-	{
-	//constantes
-	final int ELEMENTS= 10000;
-	
-	
-	Random numbers= new Random(System.nanoTime());
-	HashMap <Integer,Integer>miHash= new HashMap<Integer,Integer>();
-	
-	
-	int []miArray = new int [ELEMENTS];
-	
-	for(int i=0;i<ELEMENTS;i++)
-	{
-	miArray[i]= numbers.nextInt(101);
-	}
-	
-	
-	//se muestra el vector con un for each
-	//por cada elemento i que esta en el vector miArray se imprime el elemento
-	for (int i: miArray)
-	{
-		System.out.println(" "+i);
-	}
-	
-	//proceso
-	int ocurrences=0;
-	for (int element: miArray)
-	{
-		if(miHash.containsKey(element))
+	public static void main(String[] args) {
+		//Constants declaration
+		final int ELEMENTS=10;
+
+		//Variables declaration
+
+		//Objects declaration
+		//Scanner input = new Scanner(System.in);
+		Random numbers= new Random(System.nanoTime());
+		HashMap<Integer, Integer> miHash = new HashMap<Integer, Integer>();
+
+		//Initialization
+		int[] miArray = new int[ELEMENTS];
+		for(int i=0;i<ELEMENTS;i++)
 		{
-			ocurrences = miHash.get(element);
-			ocurrences++;
-			miHash.put(element, ocurrences);
+			miArray[i] = numbers.nextInt(5);
 		}
-		else
+
+		//Process
+		//int ocurrences=0;
+		for(int element:miArray) 
 		{
-			miHash.put(element, 1);
+			//ocurrences=0;
+			if(miHash.containsKey(element))
+			{
+				//ocurrences = miHash.get(element);
+				//ocurrences++;
+				miHash.put(element,miHash.get(element)+1);
+			}
+			else
+			{
+				miHash.put(element,1);
+			}
+			/*
+			miHash.putIfAbsent(element, 1);*/
 		}
-		
-		miHash.putIfAbsent(element, 1);
+		System.out.println(miHash);
+
+		for(int i:miArray)
+		{
+			System.out.print(" "+i);
+		}
+		//input.close();
+
 	}
-	
-	System.out.println(miHash);
-	for (int i: miArray)
-	{
-		System.out.println(" "+i);
-	}
-	
-	}
-	
+
 }
