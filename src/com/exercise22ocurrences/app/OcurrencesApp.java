@@ -30,9 +30,9 @@ public class OcurrencesApp
 	}
 	
 	//proceso
-	int ocurrences=0;
+	
 	for (int element: miArray)
-	{
+	{	int ocurrences=0;
 		if(miHash.containsKey(element))
 		{
 			ocurrences = miHash.get(element);
